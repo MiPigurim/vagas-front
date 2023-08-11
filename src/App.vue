@@ -1,26 +1,39 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+<div>
+  <vagas-favoritas />
+  <topo-padrao @navegar="componente = $event"/>
+  <alerta v-if='exibirAlerta' />
+  <conteudo v-if='visibilidade' :conteudo='componente'></conteudo> 
+</div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Alerta from '@/components/comuns/Alerta.vue'
+import Conteudo from './components/layouts/Conteudo.vue'
+import TopoPadrao from './components/layouts/TopoPadrao.vue'
+import VagasFavoritas from './components/comuns/VagasFavoritas.vue'
 
 export default {
   name: 'App',
+  data: () => ({
+    visibilidade: true,
+    componente: 'Home',
+    exibirAlerta: false
+  }),
   components: {
-    HelloWorld
+    Alerta,
+    Conteudo,
+    TopoPadrao,
+    VagasFavoritas
+  },
+  mounted() {
+    this.emitter.on('alerta', () => {
+      this.exibirAlerta = true
+      setTimeout(() => this.exibirAlerta = false, 4000)
+      console.log('Apresentar a mensagem de aleta customizada')
+    })
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style scoped></style>
