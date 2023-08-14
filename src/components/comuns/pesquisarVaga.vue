@@ -5,14 +5,14 @@
         <div class="col">
           <div class="form-group">
             <label>Título da vaga</label>
-            <input type="text" class="form-control" placeholder="Pesquise palavras chaves, por exemplo: 'PHP', 'Pleno', 'Analista'">
+            <input type="text" class="form-control" placeholder="Pesquise palavras chaves, por exemplo: 'PHP', 'Pleno', 'Analista'" v-model="titulo">
             <small class="form-text text-muted">Informe palavras que estejam relacionadas com o título da vaga que você procura</small>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col">
-          <button class="btn btn-outline-dark mt-2">Buscar</button>
+          <button class="btn btn-outline-dark mt-2" @click="pesquisarVaga">Buscar</button>
         </div>
       </div>
     </div>
@@ -21,10 +21,14 @@
 <script>
 export default {
   name: 'PesquisaRVaga',
-  mounted() {
-    this.emitter.on('eventoGlobal1', (p) => {
-      console.log('componente VagasFav: ', p)
-    })
+  data: () => ({
+    titulo: ''
+  }),
+  methods: {
+    pesquisarVaga() {
+      this.emitter.emit('filtrarVagas', {titulo: this.titulo})
+    }
   }
+    
 }
 </script>
