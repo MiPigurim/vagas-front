@@ -22,7 +22,8 @@
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 - Vue.js
-- TypeScript
+- JavaScript
+- HTML
 - Git e Github
 
 ## 💻 Projeto
