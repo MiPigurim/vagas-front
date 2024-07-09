@@ -20,7 +20,7 @@
         <p>{{descricao}}</p>
       </div>
       <div class="card-footer">
-        <small class="text-muted">Slário: {{salario}} | Modalidade: {{getModalidade}} | Tipo: {{getTipo}} | Publicação: {{getPublicacao}}</small>
+        <small class="text-muted">Salário: {{salario}} | Modalidade: {{getModalidade}} | Tipo: {{getTipo}} | Publicação: {{getPublicacao}}</small>
       </div>
     </div>
 </template>
