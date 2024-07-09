@@ -92,7 +92,7 @@ export default{
     this.emitter.emit('alerta', {
       tipo: 'sucesso',
       titulo: `A vaga ${this.titulo} foi cadastrada com sucesso!`,
-      descricao: 'Parabéns, a avaga foi cadastrada e poderá ser consultada por milhares de profissionais da nossa plataforma.'
+      descricao: 'Parabéns, a vaga foi cadastrada e poderá ser consultada por milhares de profissionais da nossa plataforma.'
     })
       this.resetaFormularioCadastroVaga()
 
